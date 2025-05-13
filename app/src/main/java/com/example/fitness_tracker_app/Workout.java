@@ -1,6 +1,8 @@
 package com.example.fitness_tracker_app;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Workout {
     private static final ArrayList<String> types = new ArrayList<>();
@@ -27,6 +29,10 @@ public class Workout {
 
     public String getType() {
         return types.get(index);
+    }
+
+    public static List<String> getTypes() {
+        return Collections.unmodifiableList(types);
     }
 
     public int getPointsMultiplier() {

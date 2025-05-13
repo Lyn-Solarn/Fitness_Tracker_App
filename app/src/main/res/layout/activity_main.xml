@@ -3,10 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/workoutDropdownInput"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/entryTimeInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Minutes"
+            android:inputType="number"/>
+
+        <Button
+            android:id="@+id/addEntryButton"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add Entry" />
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/scroll"
