@@ -25,7 +25,7 @@ import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements Serializable{
 
-    // --- Views ---
+    // Views
     private ScrollView scroll;
     private LinearLayout vertical;
     private Spinner workoutDropdown;
@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements Serializable{
 
     public static final UserStatistics user = new UserStatistics("user");
 
-    // --- Data model ---
     private Tracker tracker;
 
     @Override
@@ -47,14 +46,14 @@ public class MainActivity extends AppCompatActivity implements Serializable{
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        // apply edge-to-edge padding
+        // Add padding for formatting
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(bars.left, bars.top, bars.right, bars.bottom);
             return insets;
         });
 
-        // 1) Wire up your views
+        // Setting up input and output views
         scroll           = findViewById(R.id.scroll);
         vertical         = findViewById(R.id.vertical);
         workoutDropdown  = findViewById(R.id.workoutDropdownInput);
@@ -62,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements Serializable{
         addEntryButton   = findViewById(R.id.addEntryButton);
         viewStatsButton  = findViewById(R.id.statButton);
 
-        // 2) Seed your Tracker and render its entries
+        // Getting the user's tracker and displaying all of their entries
         tracker = user.getWorkoutTracker();
         if (tracker == null) {
             Log.e("MainActivity", "Tracker is null after initialization");
@@ -72,16 +71,16 @@ public class MainActivity extends AppCompatActivity implements Serializable{
         Log.d("MainActivity", "Tracker initialized");
         renderAllEntries();
 
-        // 3) Populate the Spinner from your Workout class
+        // Displaying workout options in dropdown menu
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_spinner_item,
-                Workout.getTypes()    // <-- returns List<String> of all the workout names
+                Workout.getTypes()    // returns a list of all the workout names
         );
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         workoutDropdown.setAdapter(spinnerAdapter);
 
-        // 4) Handle Add-Entry clicks
+        // Add entry button
         addEntryButton.setOnClickListener(v -> {
             String minutesText = entryTimeInput.getText().toString().trim();
             if (minutesText.isEmpty()) {
@@ -97,21 +96,19 @@ public class MainActivity extends AppCompatActivity implements Serializable{
                 return;
             }
 
-            // 5) Build & store the new entry
+            // Add new entry to the user's Tracker
             int selIndex = workoutDropdown.getSelectedItemPosition();
             Workout w     = new Workout(selIndex);
             newEntry = new TrackerEntry(w, new Time(minutes));
             tracker.addEntry(newEntry);
 
-            // 6) Show it immediately
+            // Display new entry and clear inputs
             addEntryRow(newEntry);
-
-            // 7) Clear inputs
             entryTimeInput.getText().clear();
             workoutDropdown.setSelection(0);
         });
 
-        // handle viewing stats button
+        // View stat screen button
         viewStatsButton.setOnClickListener(v -> {
             Intent statIntent = new Intent(MainActivity.this, Stat_page.class);
             Bundle bundle = new Bundle();
@@ -124,16 +121,16 @@ public class MainActivity extends AppCompatActivity implements Serializable{
         });
     }
 
-    /** Inflate & append all existing entries in the tracker */
+    // Displays each entry in the tracker
     private void renderAllEntries() {
         for (int i = 0, n = tracker.getSize(); i < n; i++) {
             addEntryRow(tracker.getEntry(i));
         }
     }
 
-    /** Build one horizontal “row” for this entry and add it to the vertical container */
+    // Displays a new tracker entry
     private void addEntryRow(TrackerEntry entry) {
-        // a) container
+        // Setting up new LinearLayout for each line
         LinearLayout line = new LinearLayout(this);
         LinearLayout.LayoutParams rowParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -146,12 +143,11 @@ public class MainActivity extends AppCompatActivity implements Serializable{
                 TypedValue.COMPLEX_UNIT_DIP, 8, getResources().getDisplayMetrics());
         line.setPadding(pad, pad, pad, pad);
 
-        // b) shared cell params (equal weight)
+        // Setting up text fields
         LinearLayout.LayoutParams cellParams = new LinearLayout.LayoutParams(
                 0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f
         );
 
-        // c) three text fields
         TextView name = new TextView(this);
         name.setLayoutParams(cellParams);
         name.setGravity(Gravity.CENTER);
@@ -170,14 +166,14 @@ public class MainActivity extends AppCompatActivity implements Serializable{
         points.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
         points.setText(String.valueOf(entry.getPointsEarned()));
 
-        // d) assemble
+        // Add views to the line and add line to the display
         line.addView(name);
         line.addView(time);
         line.addView(points);
         vertical.addView(line);
     }
 
-    /** Your existing seed data */
+    // Testing data
     public Tracker makeData() {
         Workout run   = new Workout(0);
         Workout walk  = new Workout(1);
