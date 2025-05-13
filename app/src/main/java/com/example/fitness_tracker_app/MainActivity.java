@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements Serializable{
 
     public TrackerEntry newEntry;
 
-    public UserStatistics user;
+    public static final UserStatistics user = new UserStatistics("user");
 
     // --- Data model ---
     private Tracker tracker;
@@ -54,9 +54,6 @@ public class MainActivity extends AppCompatActivity implements Serializable{
             return insets;
         });
 
-        // 0) Set up user
-        user = new UserStatistics("user", tracker);
-
         // 1) Wire up your views
         scroll           = findViewById(R.id.scroll);
         vertical         = findViewById(R.id.vertical);
@@ -66,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements Serializable{
         viewStatsButton  = findViewById(R.id.statButton);
 
         // 2) Seed your Tracker and render its entries
-        tracker = makeData();
+        tracker = user.getWorkoutTracker();
         if (tracker == null) {
             Log.e("MainActivity", "Tracker is null after initialization");
         } else {
