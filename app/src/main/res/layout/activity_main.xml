@@ -49,13 +49,18 @@
             android:orientation="vertical" />
     </ScrollView>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
     <Button
         android:id="@+id/statButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:rotationX="0"
-        android:scaleX=".4"
-        android:scaleY=".44"
+        android:scaleX="1"
+        android:scaleY="1"
         android:text="@string/statButtonLabel"
-        android:textSize="34sp" />
+        android:textSize="25sp" />
 </LinearLayout>

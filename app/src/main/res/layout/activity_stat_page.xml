@@ -1,130 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
     tools:context=".Stat_page">
 
     <TextView
         android:id="@+id/topLabelText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/topLabelText" />
+        android:gravity="center"
+        android:text="@string/topLabelText"
+        android:textSize="20sp"
+        android:padding="8dp" />
 
+    <!-- Total Points -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
 
         <TextView
             android:id="@+id/totalPointsText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/pointsLabelText" />
+            android:gravity="center"
+            android:text="@string/pointsLabelText"
+            android:textSize="18sp"
+            android:padding="8dp" />
 
         <TextView
             android:id="@+id/totalPointsNumber"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/pointsText" />
+            android:gravity="center"
+            android:text="@string/pointsText"
+            android:textSize="18sp"
+            android:padding="8dp" />
 
     </LinearLayout>
 
+    <!-- Total Time -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
 
         <TextView
             android:id="@+id/totalTimeText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/totalTimeLabel" />
+            android:gravity="center"
+            android:text="@string/totalTimeLabel"
+            android:textSize="18sp"
+            android:padding="8dp" />
 
         <TextView
             android:id="@+id/totalTimeNumber"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/totalTimeNumberLabel" />
+            android:gravity="center"
+            android:text="@string/totalTimeNumberLabel"
+            android:textSize="18sp"
+            android:padding="8dp" />
 
     </LinearLayout>
 
+    <!-- Average Time -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
 
         <TextView
             android:id="@+id/averageTimeText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/averageTimeLabelText" />
+            android:gravity="center"
+            android:text="@string/averageTimeLabelText"
+            android:textSize="18sp"
+            android:padding="8dp" />
 
         <TextView
             android:id="@+id/averageTimeNumber"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/aerageTimeNumberText" />
+            android:gravity="center"
+            android:text="@string/aerageTimeNumberText"
+            android:textSize="18sp"
+            android:padding="8dp" />
+
     </LinearLayout>
 
+    <!-- Favorite Workout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
 
         <TextView
             android:id="@+id/favoriteWorkoutLabel"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/favoriteWorkoutTextLabel" />
+            android:gravity="center"
+            android:text="@string/favoriteWorkoutTextLabel"
+            android:textSize="18sp"
+            android:padding="8dp" />
 
         <TextView
             android:id="@+id/favoriteWorkoutText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/favoriteWorkoutLabel" />
+            android:gravity="center"
+            android:text="@string/favoriteWorkoutLabel"
+            android:textSize="18sp"
+            android:padding="8dp" />
+
     </LinearLayout>
 
+    <!-- Least Favorite Workout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="502dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
 
         <TextView
             android:id="@+id/leastFavoriteWorkoutLabel"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/leastFavoriteWorkoutText" />
+            android:gravity="center"
+            android:text="@string/leastFavoriteWorkoutText"
+            android:textSize="18sp"
+            android:padding="8dp" />
 
         <TextView
             android:id="@+id/leastFavoriteWorkoutText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/leastFavoriteWorkoutLabel" />
+            android:gravity="center"
+            android:text="@string/leastFavoriteWorkoutLabel"
+            android:textSize="18sp"
+            android:padding="8dp" />
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- Back Button -->
     <Button
         android:id="@+id/backButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:scaleX=".4"
-        android:scaleY=".4"
+        android:scaleX="1"
+        android:scaleY="1"
         android:text="@string/BackButtonLabel"
-        android:textSize="34sp" />
+        android:textSize="25sp" />
 
 </LinearLayout>

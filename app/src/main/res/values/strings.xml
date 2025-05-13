@@ -15,7 +15,7 @@
     <string name="aerageTimeNumberText">0</string>
     <string name="favoriteWorkoutTextLabel">Favorite Workout:</string>
     <string name="favoriteWorkoutLabel">na</string>
-    <string name="leastFavoriteWorkoutText">Least Favorite Workout</string>
+    <string name="leastFavoriteWorkoutText">Least Favorite Workout:</string>
     <string name="leastFavoriteWorkoutLabel">na</string>
     <string name="BackButtonLabel">Back</string>
 </resources>
