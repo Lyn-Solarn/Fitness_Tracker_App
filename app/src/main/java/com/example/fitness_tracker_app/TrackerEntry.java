@@ -1,12 +1,19 @@
 package com.example.fitness_tracker_app;
 
-public class TrackerEntry {
+import java.io.Serializable;
+
+public class TrackerEntry extends android.app.Activity implements Serializable {
     private Workout workout;
     private Time duration;
 
     public TrackerEntry(Workout workout, Time duration) {
         this.workout = workout;
         this.duration = duration;
+    }
+
+    public TrackerEntry() {
+        workout = new Workout(0);
+        duration = new Time(0);
     }
 
     public int getPointsEarned() {

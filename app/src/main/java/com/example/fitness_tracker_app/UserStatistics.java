@@ -1,6 +1,8 @@
 package com.example.fitness_tracker_app;
 
-public class UserStatistics {
+import java.io.Serializable;
+
+public class UserStatistics implements Serializable {
     private String username;
     private Tracker workoutTracker;
 
@@ -99,4 +101,5 @@ public class UserStatistics {
     public void setWorkoutTracker(Tracker workoutTracker) {
         this.workoutTracker = workoutTracker;
     }
+
 }

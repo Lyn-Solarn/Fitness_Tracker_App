@@ -1,9 +1,10 @@
 package com.example.fitness_tracker_app;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tracker {
+public class Tracker implements Serializable {
     private final List<TrackerEntry> log = new ArrayList<>();
 
     //TO-DO
