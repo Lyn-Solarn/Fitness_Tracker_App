@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="Minutes"
+            android:hint="@string/inputTextHint"
             android:inputType="number"/>
 
         <Button
@@ -33,13 +33,14 @@
             android:layout_width="215dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Add Entry" />
+            android:text="@string/addEntryButtonText" />
+
     </LinearLayout>
 
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="520dp">
 
         <LinearLayout
             android:id="@+id/vertical"
@@ -47,4 +48,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" />
     </ScrollView>
+
+    <Button
+        android:id="@+id/statButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rotationX="0"
+        android:scaleX=".4"
+        android:scaleY=".44"
+        android:text="@string/statButtonLabel"
+        android:textSize="34sp" />
 </LinearLayout>

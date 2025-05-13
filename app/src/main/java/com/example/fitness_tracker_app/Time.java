@@ -1,6 +1,8 @@
 package com.example.fitness_tracker_app;
 
-public class Time {
+import java.io.Serializable;
+
+public class Time implements Serializable {
     private int minutes;
 
     public Time(int minutes) {

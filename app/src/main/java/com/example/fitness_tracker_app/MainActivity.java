@@ -1,6 +1,8 @@
 package com.example.fitness_tracker_app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -18,9 +20,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.io.Serializable;
 import java.util.Collections;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Serializable{
 
     // --- Views ---
     private ScrollView scroll;
@@ -28,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
     private Spinner workoutDropdown;
     private EditText entryTimeInput;
     private Button addEntryButton;
+
+    private Button viewStatsButton;
+
+    public TrackerEntry newEntry;
+
+    public UserStatistics user;
 
     // --- Data model ---
     private Tracker tracker;
@@ -45,15 +54,25 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        // 0) Set up user
+        user = new UserStatistics("user", tracker);
+
         // 1) Wire up your views
         scroll           = findViewById(R.id.scroll);
         vertical         = findViewById(R.id.vertical);
         workoutDropdown  = findViewById(R.id.workoutDropdownInput);
         entryTimeInput   = findViewById(R.id.entryTimeInput);
         addEntryButton   = findViewById(R.id.addEntryButton);
+        viewStatsButton  = findViewById(R.id.statButton);
 
         // 2) Seed your Tracker and render its entries
         tracker = makeData();
+        if (tracker == null) {
+            Log.e("MainActivity", "Tracker is null after initialization");
+        } else {
+            Log.d("MainActivity", "Tracker initialized successfully");
+        }
+        Log.d("MainActivity", "Tracker initialized");
         renderAllEntries();
 
         // 3) Populate the Spinner from your Workout class
@@ -84,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
             // 5) Build & store the new entry
             int selIndex = workoutDropdown.getSelectedItemPosition();
             Workout w     = new Workout(selIndex);
-            TrackerEntry newEntry = new TrackerEntry(w, new Time(minutes));
+            newEntry = new TrackerEntry(w, new Time(minutes));
             tracker.addEntry(newEntry);
 
             // 6) Show it immediately
@@ -93,6 +112,18 @@ public class MainActivity extends AppCompatActivity {
             // 7) Clear inputs
             entryTimeInput.getText().clear();
             workoutDropdown.setSelection(0);
+        });
+
+        // handle viewing stats button
+        viewStatsButton.setOnClickListener(v -> {
+            Intent statIntent = new Intent(MainActivity.this, Stat_page.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("TRACK", tracker);
+            bundle.putSerializable("KEY", user);
+            statIntent.putExtras(bundle);
+            Log.d("MainActivity", "Passing tracker: " + tracker);
+            startActivity(statIntent);
+
         });
     }
 

@@ -1,10 +1,11 @@
 package com.example.fitness_tracker_app;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Workout {
+public class Workout implements Serializable {
     private static final ArrayList<String> types = new ArrayList<>();
     private static final ArrayList<Integer> multipliers = new ArrayList<>();
 

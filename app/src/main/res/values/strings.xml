@@ -2,4 +2,20 @@
     <string name="app_name">Fitness_Tracker_App</string>
     <string name="statistics_button">Statistics</string>
     <string name="username_display">Username</string>
+    <string name="statButtonLabel">View User Statistics</string>
+    <string name="addEntryButtonText">Add Entry</string>
+    <string name="inputTextHint">Minutes</string>
+    <string name="topTextLabel">User Statistics</string>
+    <string name="topLabelText">User Statistics</string>
+    <string name="pointsLabelText">Total Points:</string>
+    <string name="pointsText">0</string>
+    <string name="totalTimeLabel">Total Time:</string>
+    <string name="totalTimeNumberLabel">0</string>
+    <string name="averageTimeLabelText">Average Time:</string>
+    <string name="aerageTimeNumberText">0</string>
+    <string name="favoriteWorkoutTextLabel">Favorite Workout:</string>
+    <string name="favoriteWorkoutLabel">na</string>
+    <string name="leastFavoriteWorkoutText">Least Favorite Workout</string>
+    <string name="leastFavoriteWorkoutLabel">na</string>
+    <string name="BackButtonLabel">Back</string>
 </resources>
